@@ -1,0 +1,25 @@
+header {
+    background: #857a7a;
+    height: 74px;
+    padding: 18px 16px;
+    box-sizing: border-box;
+}
+
+
+.cart-button {
+    background: none;
+    border: 1px solid black;
+    color: rgb(192, 27, 27);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 45px;
+    box-sizing: border-box;
+}
+
+.goods-list {
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px red;
+}
