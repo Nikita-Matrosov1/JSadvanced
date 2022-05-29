@@ -1,12 +1,19 @@
 header {
     background: #857a7a;
-    height: 74px;
+    height: 54px;
     padding: 18px 16px;
-    box-sizing: border-box;
+    
 }
 
+.title {
+    text-align: center;  
+}
 
-.cart-button {
+.actions {
+    padding: 10px;
+}
+
+button {
     background: none;
     border: 1px solid black;
     color: rgb(192, 27, 27);
@@ -20,6 +27,18 @@ header {
 
 .goods-list {
     display: flex;
-    justify-content: space-between;
-    border: solid 1px red;
+    justify-content: center;
+    gap: 70px;
+}
+
+.goods-item {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    border: 1px solid black; 
+    box-sizing: border-box;
+    text-align: left;
+    margin-top: 100px;
+    gap: 10px; 
 }
