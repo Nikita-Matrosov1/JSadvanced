@@ -1,15 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 header {
     background: #857a7a;
     height: 54px;
     padding: 18px 16px;
+    display: grid;
+    grid-template-columns: auto max-content max-content;
     
 }
 
 .title {
-    text-align: center;  
+    text-align: left;  
 }
 
-.actions {
+.actions, .search {
     padding: 10px;
 }
 
@@ -42,3 +49,11 @@ button {
     margin-top: 100px;
     gap: 10px; 
 }
+
+.goods-search {
+    height: 36px;
+    background: none;
+}
+
+
+
