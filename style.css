@@ -87,7 +87,7 @@ button {
     background-image: url("JSimg/delete_icon.png");
     background-size: contain;
     width: 30px;
-    height: 30px;
+    height: 20px;
     margin: 10px;
     cursor: pointer;
 }
@@ -95,6 +95,8 @@ button {
 .basket-card__content {
     padding: 10px;
 }
+
+
 
 
 
