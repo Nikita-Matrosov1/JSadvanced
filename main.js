@@ -1,23 +1,50 @@
-const goods = [
-    { title: 'Shirts', price: 150},
-    { title: 'Socks', price: 50},
-    { title: 'Jacket', price: 350},
-    { title: 'Shoes', price: 250},
-];
+const BASE_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/';
+const GET_GOODS_ITEMS = `${BASE_URL}catalogData.json`
+const GET_BASKET_GOODS_ITEMS = `${BASE_URL}getBasket.json`
 
-const renderGoodsItem = (title, price) => {
-    return `
-        <div class="goods-item">
-            <h3>${title}</h3>
-            <p>${price}</p>
-        </div>  
-    `;  
-};
+function service(url) {
+   return fetch (url)
+   .then((res) => res.json()) 
+   }
 
-const renderGoodsList = (list) => {
-    let goodsList = list.map (item => renderGoodsItem(item.title, item.price));
-    document.querySelector('.goods-list').innerHTML = goodsList.join('');
+ function init() {
+    const app = new Vue({
+      el: "#root",
+      data: {
+        items: [],
+        filteredItems: [],
+        search: '',
+        isVisibleCart: false
+      },
+      methods: {
+        fetchGoods() {
+          service(GET_GOODS_ITEMS).then((data) => {
+            this.items = data;
+            this.filteredItems = data;
+          });
+        },
+   
+        filterItems() {
+          this.filteredItems = this.items.fiter(({ product_name }) => {
+            return product_name.match(new RegExp(this.search, 'gui'))
+          })
+        },
+        setVisibleCart() {
+            this.isVisibleCart = !this.isVisibleCart
+        }
+     },
+     computed: {
+      calculatePrice() {
+          return this.fileredItems.reduce((prev, { price }) => {
+            return prev + price;
+        }, 0)
+       }
+     },
+     mounted() {
+     this.fetchGoods();
+     }
+    });
 }
-
-renderGoodsList(goods);
+ 
+ window.onload = init
 
