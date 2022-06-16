@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eShop</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="root">
@@ -15,38 +15,19 @@
             <h1 class="title">eShop</h1>
             <div class="search">
                 <input type="text" class="goods-search" v-model="search">
-                <button class="search-button" type="button" v-on:click="filterItems">Искать</button>
+                <custom-button v-on:click="filterItems">Искать</custom-button>
             </div>
             <div class="actions">
-                <button class="cart-button" type="button" @click="setVisibleCart">Корзина</button>
-            </div>      
+                <custom-button v-on:click="setVisibleCart">Корзина</custom-button>
+             </div>     
         </header>
         <main>
-            <div class="goods-list" v-if="filteredItems.lenght">
-                <div class="goods-item" v-for="item in filteredItems">
-                    <h3>{{ item.product_name }}</h3>
-                    <p>{{ item.price }}</p>
-                </div>
+            <div  class="goods-list">
+               <goods-item v-for="item in filteredItems" v-bind:item="item"></goods-item>
             </div>
-            <div v-else>нет данных</div>
+         </main>
+         <basket-goods v-if="isVisibleCart" v-on:closeclick="setVisibleCart"></basket-goods>
         </main>
-
-        <div class="fixed-area" v-if="isVisibleCart">
-            <div class="basket-card">
-                <div class="basket-card__header">
-                    <h1 class="basket-card__header__title">basket card</h1>
-                    <div class="basket-card__header__delite-icon" @click="setVisibleCart">
-                    </div>
-                </div>
-                <div class="basket-card__content">
-                    content
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    
 </body>
 </html>
 

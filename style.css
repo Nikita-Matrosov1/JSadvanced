@@ -12,6 +12,13 @@ header {
     
 }
 
+#root {
+    display: grid;
+    grid-template-rows: max-content auto;
+    gap: 40px;
+    position: relative;
+}
+
 .title {
     text-align: left;  
 }
@@ -35,19 +42,18 @@ button {
 .goods-list {
     display: flex;
     justify-content: center;
-    gap: 70px;
+    gap: 40px
 }
 
 .goods-item {
-    display: flex;
-    flex-direction: column;
     width: 200px;
     height: 300px;
-    border: 1px solid black; 
+    padding: 10px;
     box-sizing: border-box;
-    text-align: left;
-    margin-top: 100px;
-    gap: 10px; 
+    outline: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .goods-search {
